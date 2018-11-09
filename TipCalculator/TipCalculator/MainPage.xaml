@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TipCalculator"
+             x:Class="TipCalculator.MainPage">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android">20</On>
+        </OnPlatform>
+    </ContentPage.Padding>
+	<Grid
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Bill" Grid.Row="0" Grid.Column="0" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center"/>
+        <Entry x:Name="billInput" Placeholder="Enter Amount" Keyboard="Numeric"  Grid.Row="0" Grid.Column="1" HorizontalOptions="StartAndExpand"/>
+
+        <Label Text="Tip"    Grid.Row="1" Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+        <Label x:Name="tipOutput" Text="0.00"  Grid.Row="1" Grid.Column="1" HorizontalOptions="StartAndExpand"/>
+
+        <Label Text="Total"  Grid.Row="2" Grid.Column="0" HorizontalOptions="StartAndExpand"/>
+        <Label x:Name="totalOutput" Text="0.00"  Grid.Row="2" Grid.Column="1" HorizontalOptions="StartAndExpand"/>
+
+        <Label Text="Tip Percentage" Grid.Row="3" Grid.Column="0"  VerticalOptions="EndAndExpand" HorizontalOptions="StartAndExpand"/>
+        <Label x:Name="tipPercent" Text="15%" Grid.Row="3" Grid.Column="1"  VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" />
+
+        <Slider x:Name="tipPercentSlider" Minimum="0" Maximum="100" Value="15" Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="0" HorizontalOptions="FillAndExpand" />
+
+        <Button Text="15%" Clicked="OnNormalTip"  Grid.Row="5" Grid.Column="0" HorizontalOptions="CenterAndExpand" />
+        <Button Text="20%" Clicked="OnGenerousTip"  Grid.Row="5" Grid.Column="1" HorizontalOptions="CenterAndExpand" />
+
+        <Button x:Name="roundDown" Text="Round Down"  Grid.Row="6" Grid.Column="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+        <Button x:Name="roundUp"   Text="Round Up" Grid.Row="6" Grid.Column="1" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand"  />
+
+	</Grid>
+
+</ContentPage>
